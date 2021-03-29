@@ -21,7 +21,7 @@ This project allows [Cloudflare Hosting Partner][1] to provide a panel for custo
 <blockquote>
 Notice: The Host API key of <a href="https://cf.tlo.xyz">cf.tlo.xyz</a> was disabled by Cloudflare.
 
-For now, all users of <a href="https://cf.tlo.xyz">cf.tlo.xyz</a> are required to log in with the Global API Key. To add a new domain to Cloudflare CNAME setup, users can <a href="https://tloxygen.com/2020/04/cloudflare-faq/">use TlOxygen Hosting’s Cloudflare plugin</a>.
+For now, all users of <a href="https://cf.tlo.xyz">cf.tlo.xyz</a> are required to log in with the Global API Key.
 </blockquote>
 
 ## Installation
@@ -64,8 +64,8 @@ If you don’t want to use the preinstalled panel above, you can install this pa
 
 ## Screenshot
 
-<img src="https://tloxygen.com/wp-content/uploads/uploads/cloudflare/en1.png" />
-<img src="https://tloxygen.com/wp-content/uploads/uploads/cloudflare/en2.png" width="433" />
+<img alt="Screenshoot 1" src="https://user-images.githubusercontent.com/6601455/112777852-c5db7780-9075-11eb-9c72-4e5061b66b6d.png" />
+<img alt="Screenshoot 2" src="https://user-images.githubusercontent.com/6601455/112777867-cd9b1c00-9075-11eb-9b34-f168175aa923.png" width="433" />
 
 ## Open-sourced software used in this project
 
