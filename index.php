@@ -198,7 +198,7 @@ default:
 ?>
 	</main>
 	<footer class="footer">
-			<p><a href="https://support.cloudflare.com/hc" target="_blank"><?php echo _('Cloudflare Support'); ?></a> | <a href="https://github.com/xos/Cloudflare_Partner_Panel" target="_blank"><?php echo _('View on GitHub'); ?></a> | <a href="https://www.nange.cn" target="_blank"><?php echo _('楠格'); ?></a></p><?php
+			<p><a href="https://support.cloudflare.com/hc" target="_blank"><?php echo _('Cloudflare Support'); ?></a> | <a href="https://github.com/xOS/CloudflarePartnerPanel" target="_blank"><?php echo _('View on GitHub'); ?></a> | <a href="https://www.nange.cn" target="_blank"><?php echo _('楠格'); ?></a> | <a href="http://beian.miit.gov.cn" target="_blank"><?php echo _('蜀ICP备18015834号-2'); ?></a></p><?php
 if ((isset($is_beta) && $is_beta) || (isset($is_debug) && $is_debug)) {
 	$time = round(microtime(true) - $starttime, 3);
 	echo '<small><p>Beta Version / Load time: ' . $time . 's </p>';
