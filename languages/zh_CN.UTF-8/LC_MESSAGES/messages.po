@@ -234,8 +234,8 @@ msgstr "安全"
 #: actions/list_zones.php:86
 msgid ""
 "This domain only supports NS setup. And you should manage DNS records on "
-"Cloudflare.com."
-msgstr "这个域名只支持 NS 接入. 你应该在 Cloudflare.com 上管理 DNS 记录."
+"CloudFlare.com."
+msgstr "这个域名只支持 NS 接入. 你应该在 CloudFlare.com 上管理 DNS 记录."
 
 #: actions/list_zones.php:107 actions/zone.php:169 actions/zone.php:216
 msgid "Next"
@@ -250,8 +250,8 @@ msgid "Page"
 msgstr "页码"
 
 #: actions/login.php:10 actions/login2.php:10
-msgid "Cloudflare CNAME/IP/NS Setup"
-msgstr "Cloudflare CNAME/IP/NS 接入"
+msgid "CloudFlare CNAME/IP/NS Setup"
+msgstr "CloudFlare CNAME/IP/NS 接入"
 
 #: actions/login.php:12 actions/login2.php:19
 msgid "Please sign in"
@@ -279,8 +279,8 @@ msgid "Use your existing account or create a new account here."
 msgstr "在这里登录你已有的账号或者注册新账号."
 
 #: actions/login.php:24 actions/login2.php:32
-msgid "We will not store any of your Cloudflare data"
-msgstr "我们不会存储你的任何 Cloudflare 数据"
+msgid "We will not store any of your CloudFlare data"
+msgstr "我们不会存储你的任何 CloudFlare 数据"
 
 #: actions/login2.php:22 actions/login2.php:24
 msgid "Your global API key on cloudflare.com"
@@ -323,11 +323,11 @@ msgstr "SSL 验证记录名"
 #: actions/security.php:74
 msgid ""
 "<p style=\"color:green;\">No error for SSL.</p><p>Just point the record(s) "
-"to Cloudflare and the SSL certificate will be issued and renewed "
+"to CloudFlare and the SSL certificate will be issued and renewed "
 "automatically.</p>"
 msgstr ""
 "<p style=\"color:green;\">SSL 正常。</p><p>你只需要将默认/海外记录指向 "
-"Cloudflare, SSL 证书便会自动签发和续期。</p>"
+"CloudFlare, SSL 证书便会自动签发和续期。</p>"
 
 #: actions/security.php:91
 msgid "DNSSEC <small>(Only for NS setup)</small>"
@@ -335,11 +335,11 @@ msgstr "DNSSEC <small>(仅限 NS 接入)</small>"
 
 #: actions/security.php:93 actions/security.php:110
 msgid ""
-"This feature is designed for users who use Cloudflare DNS setup. If you are "
+"This feature is designed for users who use CloudFlare DNS setup. If you are "
 "using third-party DNS services, do not turn it on nor add DS record, "
 "otherwise your domain may become inaccessible."
 msgstr ""
-"此功能仅限配置了 Cloudflare DNS 的用户使用, 如果你使用的是第三方 DNS 服务，请"
+"此功能仅限配置了 CloudFlare DNS 的用户使用, 如果你使用的是第三方 DNS 服务，请"
 "不要开启此功能，也不要配置 DS 记录, 否则可能会导致域名无法访问。"
 
 #: actions/security.php:103
@@ -435,10 +435,10 @@ msgstr "你可以使用 CNAME, IP 和 NS 任意一种方式接入。"
 msgid ""
 "This site only provides configurations that the official does not have. For "
 "more settings, such as Page Rules, Crypto, Firewall, Cache, etc., please use "
-"the same account to login Cloudflare.com to setup. "
+"the same account to login CloudFlare.com to setup. "
 msgstr ""
 "本站只提供官网之外的配置。更多设置，如 Page Rules、SSL 回源配置、防火墙、缓存"
-"配置等，请使用相同账号登录 Cloudflare.com 查看。"
+"配置等，请使用相同账号登录 CloudFlare.com 查看。"
 
 #: cloudflare.class.php:69
 msgid "Error, please confirm your domain."
@@ -468,16 +468,16 @@ msgid "Console"
 msgstr "面板"
 
 #: index.php:124 settings.php:73
-msgid "Cloudflare CNAME/IP Advanced Setup"
-msgstr "Cloudflare CNAME/IP 高级接入"
+msgid "CloudFlare CNAME/IP Advanced Setup"
+msgstr "CloudFlare CNAME/IP 高级接入"
 
 #: index.php:163 languages/translates.php:24
 msgid "Logout"
 msgstr "退出登录"
 
 #: index.php:220
-msgid "Cloudflare Support"
-msgstr "Cloudflare 支持"
+msgid "CloudFlare Support"
+msgstr "CloudFlare 支持"
 
 #: index.php:221 settings.php:110
 msgid "View on GitHub"
