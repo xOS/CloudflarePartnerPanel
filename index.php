@@ -103,8 +103,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'zone' && !isset($_COOKIE['tlo_
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="TlOxygen Cloudflare Partners">
-	<meta name="keywords" content="TlOxygen, Cloudflare">
+	<meta name="description" content="Cloudflare Partners">
+	<meta name="keywords" content="Cloudflare">
 	<title><?php
 if (isset($_GET['action'])) {
 	if ($_GET['action'] != 'login') {
