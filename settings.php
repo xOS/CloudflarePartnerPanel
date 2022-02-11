@@ -41,8 +41,8 @@ if (isset($language_supported[$short_lan])) {
 	$locale = $language_supported[$short_lan];
 	$iso_language = $short_lan;
 } else {
-	$locale = 'en';
-	$iso_language = 'en';
+	$locale = 'zh';
+	$iso_language = 'zh';
 }
 putenv("LANGUAGE=");
 putenv('LANG=' . $locale);
@@ -68,8 +68,8 @@ if(file_exists(dirname(__FILE__) . '/vendor/autoload.php')){
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="TlOxygen Cloudflare Partners">
-		<meta name="keywords" content="TlOxygen, Cloudflare">
+		<meta name="description" content="Cloudflare Partners">
+		<meta name="keywords" content="Cloudflare">
 		<title><?php
 			echo _('Error') . ' | ' . _('Cloudflare CNAME/IP Advanced Setup') . ' &#8211; ' . $page_title;
 		?></title>
@@ -108,7 +108,7 @@ if(file_exists(dirname(__FILE__) . '/vendor/autoload.php')){
 
 	</main>
 	<footer class="footer">
-		<p><a href="https://github.com/XOS/Cloudflare_Partner_Panel" target="_blank"><?php echo _('View on GitHub'); ?></a></p>
+		<p><a href="https://support.cloudflare.com/hc" target="_blank"><?php echo _('Cloudflare Support'); ?></a> | <a href="https://github.com/xOS/CloudflarePartnerPanel" target="_blank"><?php echo _('View on GitHub'); ?></a> | <a href="https://www.nange.cn" target="_blank"><?php echo _('楠格'); ?></a> | <a href="http://beian.miit.gov.cn" target="_blank"><?php echo _('蜀ICP备18015834号-2'); ?></a></p>
 	</footer>
 	</body>
 	</html>
