@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 			exit('<div class="alert alert-danger" role="alert">' . $e->getMessage() . '</div>');
 		}
 		if ($res['result'] == 'success') {
-			$msg = _('Success') . ', <a target="_blank" href="https://www.cloudflare.com/a/overview/' . $zone_name . '">' . _('Go to console') . '</a>. ';
+			$msg = _('成功') . ', <a target="_blank" href="https://www.cloudflare.com/a/overview/' . $zone_name . '">' . _('前往管理中心') . '</a>. ';
 			exit('<div class="alert alert-success" role="alert">' . $msg . '</div>');
 		} elseif (isset($res['msg'])) {
 			$msg = $res['msg'];
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 			exit('<div class="alert alert-danger" role="alert">' . $e->getMessage() . '</div>');
 		}
 	} else {
-		exit('<div class="alert alert-danger" role="alert">' . _('Cannot add a existing domain.') . '</div>');
+		exit('<div class="alert alert-danger" role="alert">' . _('无法添加已经存在的域名。') . '</div>');
 	}
 
 	if ($res['result'] == 'success') {
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 			exit('<div class="alert alert-danger" role="alert">' . $e->getMessage() . '</div>');
 		}
 
-		$msg = _('Success') . ', <a href="?action=zone&amp;domain=' . $zone_name . '&amp;zoneid=' . $zoneID . '">' . _('Go to console') . '</a>. ';
+		$msg = _('成功') . ', <a href="?action=zone&amp;domain=' . $zone_name . '&amp;zoneid=' . $zoneID . '">' . _('前往管理中心') . '</a>. ';
 		exit('<div class="alert alert-success" role="alert">' . $msg . '</div>');
 	} elseif (isset($res['msg'])) {
 		$msg = $res['msg'];
@@ -83,7 +83,7 @@ if (isset($msg) && $msg != '') {
 
 ?>
 <form method="POST" action="" class="add-domain-form">
-	<label for="domain" class="sr-only"><?php echo _('Domain'); ?></label>
-	<input type="text" id="domain" class="form-control" name="domain" placeholder="<?php echo _('Please enter your domain'); ?>">
-	<button type="submit" name="submit" class="btn btn-primary mt-3"><?php echo _('Submit'); ?></button>
+	<label for="domain" class="sr-only"><?php echo _('域名'); ?></label>
+	<input type="text" id="domain" class="form-control" name="domain" placeholder="<?php echo _('请输入你的域名'); ?>">
+	<button type="submit" name="submit" class="btn btn-primary mt-3"><?php echo _('提交'); ?></button>
 </form>

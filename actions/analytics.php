@@ -11,8 +11,8 @@ $zoneID = $_GET['zoneid'];
 $date_now = new DateTime();
 
 ?>
-<strong><?php echo strtoupper($zone_name); ?></strong> / <small><?php echo _('Advanced Analytics'); ?></small><hr>
-<p id="tlorefresh" class="alert alert-primary" role="alert"><?php echo _('Loading failed. Please refresh the page to retry.'); ?></p>
+<strong><?php echo strtoupper($zone_name); ?></strong> / <small><?php echo _('高级统计'); ?></small><hr>
+<p id="tlorefresh" class="alert alert-primary" role="alert"><?php echo _('加载失败，请刷新页面重试。'); ?></p>
 <script src="js/Chart.bundle.js"></script>
 <div style="height:325px"><canvas id="requests"></canvas></div>
 <div style="height:325px"><canvas id="pageview"></canvas></div>
@@ -55,7 +55,7 @@ foreach ($analytics->result->timeseries as $key) {
 ?>
 			],
 			datasets: [{
-				label: "<?php echo _('Cached'); ?>",
+				label: "<?php echo _('已缓存'); ?>",
 				fill: true,
 				backgroundColor: window.chartColors.orange,
 				borderColor: window.chartColors.red,
@@ -67,7 +67,7 @@ foreach ($analytics->result->timeseries as $key) {
 ?>
 				],
 			}, {
-				label: "<?php echo _('All'); ?>",
+				label: "<?php echo _('全部'); ?>",
 				fill: true,
 				backgroundColor: window.chartColors.blue,
 				borderColor: window.chartColors.purple,
@@ -85,7 +85,7 @@ foreach ($analytics->result->timeseries as $key) {
 			maintainAspectRatio: false,
 			title:{
 				display:true,
-				text:'<?php echo _('Requests'); ?>'
+				text:'<?php echo _('请求'); ?>'
 			},
 			tooltips: {
 				mode: 'index',
@@ -100,14 +100,14 @@ foreach ($analytics->result->timeseries as $key) {
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: '<?php echo _('Date'); ?>'
+						labelString: '<?php echo _('日期'); ?>'
 					}
 				}],
 				yAxes: [{
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: '<?php echo _('Requests'); ?>'
+						labelString: '<?php echo _('请求'); ?>'
 					},
 					ticks: {
 						suggestedMin: 0
@@ -128,7 +128,7 @@ foreach ($analytics->result->timeseries as $key) {
 ?>
 			],
 			datasets: [{
-				label: "<?php echo _('Unique Visitors'); ?>",
+				label: "<?php echo _('独立访客数'); ?>",
 				fill: true,
 				backgroundColor: window.chartColors.orange,
 				borderColor: window.chartColors.red,
@@ -140,7 +140,7 @@ foreach ($analytics->result->timeseries as $key) {
 ?>
 				],
 			}, {
-				label: "<?php echo _('Page Views'); ?>",
+				label: "<?php echo _('页面浏览量'); ?>",
 				fill: true,
 				backgroundColor: window.chartColors.blue,
 				borderColor: window.chartColors.purple,
@@ -158,7 +158,7 @@ foreach ($analytics->result->timeseries as $key) {
 			maintainAspectRatio: false,
 			title:{
 				display:true,
-				text:'<?php echo _('Requests'); ?>'
+				text:'<?php echo _('请求'); ?>'
 			},
 			tooltips: {
 				mode: 'index',
@@ -173,14 +173,14 @@ foreach ($analytics->result->timeseries as $key) {
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: '<?php echo _('Date'); ?>'
+						labelString: '<?php echo _('日期'); ?>'
 					}
 				}],
 				yAxes: [{
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: '<?php echo _('Requests'); ?>'
+						labelString: '<?php echo _('请求'); ?>'
 					},
 					ticks: {
 						suggestedMin: 0
@@ -201,7 +201,7 @@ foreach ($analytics->result->timeseries as $key) {
 ?>
 			],
 			datasets: [{
-				label: "<?php echo _('Cached'); ?>",
+				label: "<?php echo _('已缓存'); ?>",
 				fill: true,
 				backgroundColor: window.chartColors.orange,
 				borderColor: window.chartColors.red,
@@ -213,7 +213,7 @@ foreach ($analytics->result->timeseries as $key) {
 ?>
 				],
 			}, {
-				label: "<?php echo _('All'); ?>",
+				label: "<?php echo _('全部'); ?>",
 				fill: true,
 				backgroundColor: window.chartColors.blue,
 				borderColor: window.chartColors.purple,
@@ -231,7 +231,7 @@ foreach ($analytics->result->timeseries as $key) {
 			maintainAspectRatio: false,
 			title:{
 				display:true,
-				text:'<?php echo _('Bandwidth (Unit: '); ?><?php echo $formatBytes_array[1]; ?>)'
+				text:'<?php echo _('流量 (单位: '); ?><?php echo $formatBytes_array[1]; ?>)'
 			},
 			tooltips: {
 				mode: 'index',
@@ -246,14 +246,14 @@ foreach ($analytics->result->timeseries as $key) {
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: '<?php echo _('Date'); ?>'
+						labelString: '<?php echo _('日期'); ?>'
 					}
 				}],
 				yAxes: [{
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: '<?php echo _('Bandwidth (Unit: '); ?><?php echo $formatBytes_array[1]; ?>)'
+						labelString: '<?php echo _('流量 (单位: '); ?><?php echo $formatBytes_array[1]; ?>)'
 					},
 					ticks: {
 						suggestedMin: 0
@@ -275,20 +275,20 @@ foreach ($analytics->result->timeseries as $key) {
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th scope="col"><?php echo _('Date'); ?></th>
-			<th scope="col"><?php echo _('Unique Visitors'); ?></th>
-			<th scope="col"><?php echo _('Page Views'); ?></th>
-			<th scope="col"><?php echo _('Requests'); ?></th>
-			<th scope="col"><?php echo _('Requests Hit Ratio'); ?></th>
-			<th scope="col"><?php echo _('Bandwidth'); ?></th>
-			<th scope="col"><?php echo _('Saved Bandwidth'); ?></th>
-			<th scope="col"><?php echo _('Threats'); ?></th>
+			<th scope="col"><?php echo _('日期'); ?></th>
+			<th scope="col"><?php echo _('独立访客数'); ?></th>
+			<th scope="col"><?php echo _('页面浏览量'); ?></th>
+			<th scope="col"><?php echo _('请求'); ?></th>
+			<th scope="col"><?php echo _('请求命中率'); ?></th>
+			<th scope="col"><?php echo _('流量'); ?></th>
+			<th scope="col"><?php echo _('节省流量'); ?></th>
+			<th scope="col"><?php echo _('攻击拦截'); ?></th>
 		</tr>
 	</thead>
 	<tbody>
 	<?php
 echo '<tr>
-		<th scope="col">' . _('Total (Last year)') . '</th>
+		<th scope="col">' . _('总计 (最近一年)') . '</th>
 		<th>' . number_format($analytics->result->totals->uniques->all) . '</th>
 		<th>' . number_format($analytics->result->totals->pageviews->all) . '</th>
 		<th>' . number_format($analytics->result->totals->requests->all) . '</th>

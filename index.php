@@ -22,7 +22,7 @@ if (!isset($_COOKIE['cloudflare_email']) || !isset($_COOKIE['user_api_key'])) {
 		$cloudflare_pass = $_POST['cloudflare_pass'];
 		$times = apcu_fetch('login_' . date("Y-m-d H") . $cloudflare_email);
 		if ($times > 5) {
-			$msg = '<p>' . _('You have been blocked since you have too many fail logins. You can try it in next hour.') . '</p>';
+			$msg = '<p>' . _('由于你多次登录失败，请一个小时后再试。') . '</p>';
 			exit;
 		}
 		$cloudflare = new CloudFlare;
@@ -56,7 +56,7 @@ if (!isset($_COOKIE['cloudflare_email']) || !isset($_COOKIE['user_api_key'])) {
 
 		$times = apcu_fetch('login_' . date("Y-m-d H") . $_POST['cloudflare_email']);
 		if ($times > 5) {
-			$msg = '<p>' . _('You have been blocked since you have too many fail logins. You can try it in next hour.') . '</p>';
+			$msg = '<p>' . _('由于你多次登录失败，请一个小时后再试。') . '</p>';
 			exit;
 		}
 
@@ -64,7 +64,7 @@ if (!isset($_COOKIE['cloudflare_email']) || !isset($_COOKIE['user_api_key'])) {
 		try {
 			$user_details = $user->getUserDetails();
 		} catch (Exception $e) {
-			echo '<div class="alert alert-warning" role="alert">' . _('An error occurred. You might have provided an error email and API key pair.') . '</div>';
+			echo '<div class="alert alert-warning" role="alert">' . _('邮箱或 API Key 错误！') . '</div>';
 			echo '<div class="alert alert-warning" role="alert">' . $e->getMessage() . '</div>';
 			$times = $times + 1;
 			apcu_store('login_' . date("Y-m-d H") . $_POST['cloudflare_email'], $times, 7200);
@@ -118,10 +118,10 @@ if (isset($_GET['action'])) {
 		echo $action_name[$_GET['action']] . ' | ';
 	}
 } else {
-	echo _('Console') . ' | ';
+	echo _('面板') . ' | ';
 }
 
-echo _('Cloudflare CNAME/IP Advanced Setup') . ' &#8211; ' . $page_title;
+echo _('Cloudflare CNAME/IP 高级接入') . ' &#8211; ' . $page_title;
 ?></title>
 	<meta name="renderer" content="webkit">
 	<link rel="stylesheet" href="vendor/components/bootstrap/css/bootstrap.min.css">
@@ -137,11 +137,11 @@ echo _('Cloudflare CNAME/IP Advanced Setup') . ' &#8211; ' . $page_title;
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active nav-link">
-					<?php if (isset($_GET['action']) && isset($action_name[$_GET['action']])) {echo $action_name[$_GET['action']];} else {echo _('Console');}?> <span class="sr-only">(current)</span>
+					<?php if (isset($_GET['action']) && isset($action_name[$_GET['action']])) {echo $action_name[$_GET['action']];} else {echo _('面板');}?> <span class="sr-only">(current)</span>
 				</li>
 				<?php if (!isset($_GET['action']) || $_GET['action'] != 'login' && $_GET['action'] != 'logout') {?>
 				<li class="nav-item">
-					<a class="nav-link" href="?action=logout"><?php echo _('Logout'); ?></a>
+					<a class="nav-link" href="?action=logout"><?php echo _('注销'); ?></a>
 				</li>
 				<?php }?>
 			</ul>
@@ -198,7 +198,7 @@ default:
 ?>
 	</main>
 	<footer class="footer">
-			<p><a href="https://support.cloudflare.com/hc" target="_blank"><?php echo _('Cloudflare Support'); ?></a> | <a href="https://github.com/xOS/CloudflarePartnerPanel" target="_blank"><?php echo _('View on GitHub'); ?></a> | <a href="https://www.nange.cn" target="_blank"><?php echo _('楠格'); ?></a> | <a href="http://beian.miit.gov.cn" target="_blank"><?php echo _('蜀ICP备18015834号-2'); ?></a></p><?php
+			<p><a href="https://support.cloudflare.com/hc" target="_blank"><?php echo _('CloudFlare 支持'); ?></a> | <a href="https://github.com/xOS/CloudflarePartnerPanel" target="_blank"><?php echo _('在 GitHub 上查看'); ?></a> | <a href="https://www.nange.cn" target="_blank"><?php echo _('楠格'); ?></a> | <a href="http://beian.miit.gov.cn" target="_blank"><?php echo _('蜀ICP备18015834号-2'); ?></a></p><?php
 if ((isset($is_beta) && $is_beta) || (isset($is_debug) && $is_debug)) {
 	$time = round(microtime(true) - $starttime, 3);
 	echo '<small><p>Beta Version / Load time: ' . $time . 's </p>';

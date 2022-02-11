@@ -10,22 +10,22 @@ if (!isset($_GET['page'])) {
 }
 if(!$no_api_key){
 ?>
-<a href="?action=add" class="btn btn-primary float-sm-right mb-3 d-block"><?php echo _('Add Domain'); ?></a>
+<a href="?action=add" class="btn btn-primary float-sm-right mb-3 d-block"><?php echo _('添加域名'); ?></a>
 <?php } ?>
-<h3 class="d-none d-sm-block"><?php echo _('Home'); ?></h3>
+<h3 class="d-none d-sm-block"><?php echo _('主页'); ?></h3>
 <?php if($no_api_key){
 	if(isset($tlo_promotion_header)){
 		echo $tlo_promotion_header;
 	} else {
-		echo '<div class="alert alert-warning" role="alert">' . _('No Host API key found. You cannot add new domain to this service.') . '</div>';
+		echo '<div class="alert alert-warning" role="alert">' . _('没有找到 Host API key。请通过 Global API Key 登录使用') . '</div>';
 	}
 } ?>
 <table class="table table-striped">
 	<thead>
 	<tr>
 		<th scope="col"><?php echo _('Domain'); ?></th>
-		<th scope="col" class="d-none d-sm-table-cell"><?php echo _('Status'); ?></th>
-		<th scope="col" class="d-none d-sm-table-cell"><?php echo _('Operation'); ?></th>
+		<th scope="col" class="d-none d-sm-table-cell"><?php echo _('状态'); ?></th>
+		<th scope="col" class="d-none d-sm-table-cell"><?php echo _('操作'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -39,10 +39,10 @@ try {
 
 foreach ($zones_data->result as $zone) {
 	echo '<tr>';
-	$_translate_analytics = _('Advanced Analytics');
-	$_translate_manage = _('Manage');
-	$_translate_manage_dns = _('Manage DNS');
-	$_translate_security = _('Security');
+	$_translate_analytics = _('高级统计');
+	$_translate_manage = _('管理');
+	$_translate_manage_dns = _('管理 DNS');
+	$_translate_security = _('安全');
 	if (property_exists($zone, 'name_servers')) {
 		echo <<<HTML
 		<td scope="col">
@@ -83,7 +83,7 @@ HTML;
 		<td class="d-none d-sm-table-cell btn-group" role="group">
 HTML;
 	if (property_exists($zone, 'name_servers')) {
-		echo '<a href="https://dash.cloudflare.com/" target="_blank" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="' . _('This domain only supports NS setup. And you should manage DNS records on Cloudflare.com.') . '">' . _('Manage DNS') . '</a>';
+		echo '<a href="https://dash.cloudflare.com/" target="_blank" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="' . _('该域名只支持 NS 接入，请在 Cloudflare.com 上管理 DNS 记录。') . '">' . _('管理 DNS') . '</a>';
 	} else {
 		echo <<<HTML
 <a href="?action=zone&amp;domain={$zone->name}&amp;zoneid={$zone->id}" class="btn btn-secondary btn-sm">{$_translate_manage_dns}</a>
@@ -104,13 +104,13 @@ if (isset($zones_data->result_info->total_pages)) {
 	$next_page = '';
 	if ($zones_data->result_info->page < $zones_data->result_info->total_pages) {
 		$page_link = $zones_data->result_info->page + 1;
-		$next_page = ' | <a href="?page=' . $page_link . '">' . _('Next') . '</a>';
+		$next_page = ' | <a href="?page=' . $page_link . '">' . _('下一页') . '</a>';
 	}
 	if ($zones_data->result_info->page > 1) {
 		$page_link = $zones_data->result_info->page - 1;
-		$previous_page = '<a href="?page=' . $page_link . '">' . _('Previous') . '</a> | ';
+		$previous_page = '<a href="?page=' . $page_link . '">' . _('上一页') . '</a> | ';
 	}
-	echo '<p>' . $previous_page . _('Page') . ' ' . $zones_data->result_info->page . '/' . $zones_data->result_info->total_pages . $next_page . '</p>';
+	echo '<p>' . $previous_page . _('页码') . ' ' . $zones_data->result_info->page . '/' . $zones_data->result_info->total_pages . $next_page . '</p>';
 }
 if($no_api_key && isset($tlo_promotion_footer)){
 	echo $tlo_promotion_footer;

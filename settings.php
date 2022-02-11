@@ -71,7 +71,7 @@ if(file_exists(dirname(__FILE__) . '/vendor/autoload.php')){
 		<meta name="description" content="Cloudflare Partners">
 		<meta name="keywords" content="Cloudflare">
 		<title><?php
-			echo _('Error') . ' | ' . _('Cloudflare CNAME/IP Advanced Setup') . ' &#8211; ' . $page_title;
+			echo _('错误') . ' | ' . _('Cloudflare CNAME/IP 高级接入') . ' &#8211; ' . $page_title;
 		?></title>
 		<meta name="renderer" content="webkit">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -87,21 +87,22 @@ if(file_exists(dirname(__FILE__) . '/vendor/autoload.php')){
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active nav-link">
-					<?php echo _('Error'); ?> <span class="sr-only">(current)</span>
+					<?php echo _('错误'); ?> <span class="sr-only">(current)</span>
 				</li>
 			</ul>
 		</div>
 	</nav>
 	<main class="bg-white">
 		<div class="alert alert-danger" role="alert">
-			<?php echo _('Cannot find the file:').' <code>'.dirname(__FILE__). '/vendor/autoload.php</code>';?>
+			<?php echo _('找不到文件：').' <code>'.dirname(__FILE__). '/vendor/autoload.php</code>';?>
 		</div>
 		<?php
-		echo '</p><p>'._('It probably means that <code>composer</code> dependencies are not installed properly.').'</p>';
-		echo '<p>'._('You will need to run the following codes to install the dependencies:').'</p>'.
+		echo '</p><p>'._('或许 <code>composer</code> 依赖没有被正确安装。 ').'</p>';
+		echo '<p>'._('你需要运行下方代码以安装这些依赖：').'</p>'.
 			'<pre class="alert alert-dark">cd '.dirname(__FILE__)."\n".
 			'composer install --no-dev -o</pre>';
-		echo '<p>'._('If you do not have the <code>composer</code>, install it first (you may need to run it with <code>sudo</code>):').'</p>'.
+		echo '<p>'._('如果你还没有 <code>composer</code>，请先安装 (你可能需要使用 <code>sudo</"
+		"code>)：').'</p>'.
 			'<pre class="alert alert-dark">curl -sS https://getcomposer.org/installer | php'."\n".
 			'mv composer.phar /usr/local/bin/composer</pre>';
 		?>

@@ -36,18 +36,18 @@ foreach ($dnsresult as $record) {
 /* Toggle the CDN */
 if (isset($_GET['enable']) && !$dnsproxyied[$_GET['enable']]) {
 	if ($dns->updateRecordDetails($zoneID, $_GET['enable'], ['type' => $dnstype[$_GET['enable']], 'content' => $dnscontent[$_GET['enable']], 'name' => $dnsname[$_GET['enable']], 'proxied' => true])->success == true) {
-		echo '<p class="alert alert-success" role="alert">' . _('Success') . '! </p>';
+		echo '<p class="alert alert-success" role="alert">' . _('成功') . '! </p>';
 	} else {
-		echo '<p class="alert alert-danger" role="alert">' . _('Failed') . '! </p><p><a href="?action=zone&amp;domain=' . $zone_name . '&amp;zoneid=' . $zoneID . '">' . _('Go to console') . '</a></p>';
+		echo '<p class="alert alert-danger" role="alert">' . _('失败') . '! </p><p><a href="?action=zone&amp;domain=' . $zone_name . '&amp;zoneid=' . $zoneID . '">' . _('前往管理中心') . '</a></p>';
 		exit();
 	}
 } else {
 	$_GET['enable'] = 1;
 	if (isset($_GET['disable']) && $dnsproxyied[$_GET['disable']]) {
 		if ($dns->updateRecordDetails($zoneID, $_GET['disable'], ['type' => $dnstype[$_GET['disable']], 'content' => $dnscontent[$_GET['disable']], 'name' => $dnsname[$_GET['disable']], 'proxied' => false])->success == true) {
-			echo '<p class="alert alert-success" role="alert">' . _('Success!') . '</p>';
+			echo '<p class="alert alert-success" role="alert">' . _('成功！') . '</p>';
 		} else {
-			echo '<p class="alert alert-danger" role="alert">' . _('Failed') . '! </p><p><a href="?action=zone&amp;domain=' . $zone_name . '&amp;zoneid=' . $zoneID . '">' . _('Go to console') . '</a></p>';
+			echo '<p class="alert alert-danger" role="alert">' . _('失败') . '! </p><p><a href="?action=zone&amp;domain=' . $zone_name . '&amp;zoneid=' . $zoneID . '">' . _('前往管理中心') . '</a></p>';
 			exit();
 		}
 	} else {
@@ -57,28 +57,28 @@ if (isset($_GET['enable']) && !$dnsproxyied[$_GET['enable']]) {
 ?>
 <div class="btn-group dropright">
 	<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		<?php echo _('Contents'); ?>
+		<?php echo _('目录'); ?>
 	</button>
 	<div class="dropdown-menu">
-		<a class="dropdown-item" href="#dns"><?php echo _('DNS Management'); ?></a>
-		<a class="dropdown-item" href="#cname"><?php echo _('CNAME Setup'); ?></a>
-		<a class="dropdown-item" href="#ip"><?php echo _('IP Setup'); ?></a>
-		<a class="dropdown-item" href="#ns"><?php echo _('NS Setup'); ?></a>
+		<a class="dropdown-item" href="#dns"><?php echo _('DNS 管理'); ?></a>
+		<a class="dropdown-item" href="#cname"><?php echo _('CNAME 接入'); ?></a>
+		<a class="dropdown-item" href="#ip"><?php echo _('IP 接入'); ?></a>
+		<a class="dropdown-item" href="#ns"><?php echo _('NS 接入'); ?></a>
 		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" href="https://dash.cloudflare.com/" target="_blank"><?php echo _('More Settings'); ?></a>
+		<a class="dropdown-item" href="https://dash.cloudflare.com/" target="_blank"><?php echo _('更多设置'); ?></a>
 	</div>
 </div>
-<h3 class="mt-5 mb-3" id="dns"><?php echo _('DNS Management'); ?>
-	<a class="btn btn-primary float-sm-right d-block mt-3 mt-sm-0" href='?action=add_record&amp;zoneid=<?php echo $zoneID; ?>&amp;domain=<?php echo $zone_name; ?>'><?php echo _('Add New Record'); ?></a>
+<h3 class="mt-5 mb-3" id="dns"><?php echo _('DNS 管理'); ?>
+	<a class="btn btn-primary float-sm-right d-block mt-3 mt-sm-0" href='?action=add_record&amp;zoneid=<?php echo $zoneID; ?>&amp;domain=<?php echo $zone_name; ?>'><?php echo _('添加新记录'); ?></a>
 </h3>
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th scope="col" class="d-none d-md-table-cell"><?php echo _('Record Type'); ?></th>
-			<th scope="col"><?php echo _('Host Name'); ?></th>
-			<th scope="col" class="d-none d-md-table-cell"><?php echo _('Content'); ?></th>
+			<th scope="col" class="d-none d-md-table-cell"><?php echo _('记录类型'); ?></th>
+			<th scope="col"><?php echo _('主机名'); ?></th>
+			<th scope="col" class="d-none d-md-table-cell"><?php echo _('内容'); ?></th>
 			<th scope="col" class="d-none d-md-table-cell"><?php echo _('TTL'); ?></th>
-			<th scope="col" class="d-none d-md-table-cell"><?php echo _('Operation'); ?></th>
+			<th scope="col" class="d-none d-md-table-cell"><?php echo _('操作'); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -114,16 +114,16 @@ foreach ($dnsresult as $record) {
 		<td class="d-none d-md-table-cell"><code>' . $record->type . '</code></td>
 		<td scope="col">
 			<div class="d-block d-md-none float-right">' . $proxiable . '</div>
-			<div class="d-block d-md-none">' . $record->type . ' ' . _('record') . '</div>
+			<div class="d-block d-md-none">' . $record->type . ' ' . _('记录') . '</div>
 			<code>' . htmlspecialchars($record->name) . '</code>
-			<div class="d-block d-md-none">' . _('points to') . ' ' . '<code>' . htmlspecialchars($record->content) . '</code></div>
+			<div class="d-block d-md-none">' . _('指向') . ' ' . '<code>' . htmlspecialchars($record->content) . '</code></div>
 			<div class="btn-group dropleft float-right d-block d-md-none" style="margin-top:-1em;">
 				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				' . _('Manage') . '
+				' . _('管理') . '
 				</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="?action=edit_record&domain=' . $zone_name . '&recordid=' . $record->id . '&zoneid=' . $zoneID . '">' . _('Edit') . '</a>
-					<a class="dropdown-item" href="?action=delete_record&domain=' . $zone_name . '&delete=' . $record->id . '&zoneid=' . $zoneID . '" onclick="return confirm(\'' . _('Are you sure to delete') . ' ' . htmlspecialchars($record->name) . '?\')">' . _('Delete') . '</a>
+					<a class="dropdown-item" href="?action=edit_record&domain=' . $zone_name . '&recordid=' . $record->id . '&zoneid=' . $zoneID . '">' . _('编辑') . '</a>
+					<a class="dropdown-item" href="?action=delete_record&domain=' . $zone_name . '&delete=' . $record->id . '&zoneid=' . $zoneID . '" onclick="return confirm(\'' . _('你确认要删除') . ' ' . htmlspecialchars($record->name) . '?\')">' . _('删除') . '</a>
 				</div>
 			</div>
 			<div class="d-block d-md-none">' . _('TTL') . ' ' . $ttl . '</div>
@@ -132,8 +132,8 @@ foreach ($dnsresult as $record) {
 		<td class="d-none d-md-table-cell">' . $ttl . '</td>
 		<td class="d-none d-md-table-cell" style="width: 200px;">' . $proxiable . ' |
 			<div class="btn-group" role="group">
-				<a class="btn btn-dark btn-sm" href="?action=edit_record&domain=' . $zone_name . '&recordid=' . $record->id . '&zoneid=' . $zoneID . '">' . _('Edit') . '</a>
-				<a class="btn btn-danger btn-sm" href="?action=delete_record&domain=' . $zone_name . '&delete=' . $record->id . '&zoneid=' . $zoneID . '" onclick="return confirm(\'' . _('Are you sure to delete') . ' ' . htmlspecialchars($record->name) . '?\')">' . _('Delete') . '</a>
+				<a class="btn btn-dark btn-sm" href="?action=edit_record&domain=' . $zone_name . '&recordid=' . $record->id . '&zoneid=' . $zoneID . '">' . _('编辑') . '</a>
+				<a class="btn btn-danger btn-sm" href="?action=delete_record&domain=' . $zone_name . '&delete=' . $record->id . '&zoneid=' . $zoneID . '" onclick="return confirm(\'' . _('你确认要删除') . ' ' . htmlspecialchars($record->name) . '?\')">' . _('删除') . '</a>
 			</div>
 		</td>
 	</tr>';
@@ -144,7 +144,7 @@ foreach ($dnsresult as $record) {
 </table><?php
 
 if ($no_record_yet) {
-	echo '<div class="alert alert-warning" role="alert">' . _('There is no record in this zone yet. Please add some!') . '</div>';
+	echo '<div class="alert alert-warning" role="alert">' . _('该域名还没有任何记录, 请添加！') . '</div>';
 }
 
 if (isset($dnsresult_data->result_info->total_pages)) {
@@ -152,22 +152,22 @@ if (isset($dnsresult_data->result_info->total_pages)) {
 	$next_page = '';
 	if ($dnsresult_data->result_info->page < $dnsresult_data->result_info->total_pages) {
 		$page_link = $dnsresult_data->result_info->page + 1;
-		$next_page = ' | <a href="?action=zone&domain=' . $zone_name . '&page=' . $page_link . '&amp;zoneid=' . $zoneID . '">' . _('Next') . '</a>';
+		$next_page = ' | <a href="?action=zone&domain=' . $zone_name . '&page=' . $page_link . '&amp;zoneid=' . $zoneID . '">' . _('下一页') . '</a>';
 	}
 	if ($dnsresult_data->result_info->page > 1) {
 		$page_link = $dnsresult_data->result_info->page - 1;
-		$previous_page = '<a href="?action=zone&domain=' . $zone_name . '&page=' . $page_link . '&amp;zoneid=' . $zoneID . '">' . _('Previous') . '</a> | ';
+		$previous_page = '<a href="?action=zone&domain=' . $zone_name . '&page=' . $page_link . '&amp;zoneid=' . $zoneID . '">' . _('上一页') . '</a> | ';
 	}
-	echo '<p>' . $previous_page . _('Page') . ' ' . $dnsresult_data->result_info->page . '/' . $dnsresult_data->result_info->total_pages . $next_page . '</p>';
+	echo '<p>' . $previous_page . _('页码') . ' ' . $dnsresult_data->result_info->page . '/' . $dnsresult_data->result_info->total_pages . $next_page . '</p>';
 }
 ?>
-<p><?php echo _('You can use CNAME, IP or NS to set it up.'); ?></p>
+<p><?php echo _('你可以使用 CNAME, IP 和 NS 任意一种方式接入。'); ?></p>
 
-<h3 class="mt-5 mb-3" id="cname"><?php echo _('CNAME Setup'); ?></h3>
+<h3 class="mt-5 mb-3" id="cname"><?php echo _('CNAME 接入'); ?></h3>
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th scope="col"><?php echo _('Host Name'); ?></th>
+			<th scope="col"><?php echo _('主机名'); ?></th>
 			<th scope="col" class="d-none d-md-table-cell">CNAME</th>
 		</tr>
 	</thead>
@@ -180,7 +180,7 @@ foreach ($dnsresult as $record) {
 		$last_subdomain = $record->name;
 		echo '<tr>
 				<td scope="col"><code>' . $record->name . '</code>
-					<div class="d-block d-md-none">' . _('points to') . ' <code>' . $record->name . '.cdn.cloudflare.net</code></div>
+					<div class="d-block d-md-none">' . _('指向') . ' <code>' . $record->name . '.cdn.cloudflare.net</code></div>
 				</td>
 				<td class="d-none d-md-table-cell"><code>' . $record->name . '.cdn.cloudflare.net</code></td>
 				</tr>';
@@ -192,7 +192,7 @@ foreach ($dnsresult as $record) {
 </table><?php
 
 if ($no_record_yet) {
-	echo '<div class="alert alert-warning" role="alert">' . _('There is no record in this zone yet. Please add some!') . '</div>';
+	echo '<div class="alert alert-warning" role="alert">' . _('该域名还没有任何记录, 请添加！') . '</div>';
 }
 
 if (isset($dnsresult_data->result_info->total_pages)) {
@@ -200,13 +200,13 @@ if (isset($dnsresult_data->result_info->total_pages)) {
 	$next_page = '';
 	if ($dnsresult_data->result_info->page < $dnsresult_data->result_info->total_pages) {
 		$page_link = $dnsresult_data->result_info->page + 1;
-		$next_page = ' | <a href="?action=zone&domain=' . $zone_name . '&page=' . $page_link . '">' . _('Next') . '</a>';
+		$next_page = ' | <a href="?action=zone&domain=' . $zone_name . '&page=' . $page_link . '">' . _('下一页') . '</a>';
 	}
 	if ($dnsresult_data->result_info->page > 1) {
 		$page_link = $dnsresult_data->result_info->page - 1;
-		$previous_page = '<a href="?action=zone&domain=' . $zone_name . '&page=' . $page_link . '">' . _('Previous') . '</a> | ';
+		$previous_page = '<a href="?action=zone&domain=' . $zone_name . '&page=' . $page_link . '">' . _('上一页') . '</a> | ';
 	}
-	echo '<p>' . $previous_page . _('Page') . ' ' . $dnsresult_data->result_info->page . '/' . $dnsresult_data->result_info->total_pages . $next_page . '</p>';
+	echo '<p>' . $previous_page . _('页码') . ' ' . $dnsresult_data->result_info->page . '/' . $dnsresult_data->result_info->total_pages . $next_page . '</p>';
 }
 
 $resp_cache = apcu_fetch('tlo_cf_'.$zone_name);
@@ -228,7 +228,7 @@ if ($last_subdomain != '' && !$resp_cache) {
 if ($last_subdomain != '' && (isset($resp_a->answer[0]->address) && isset($resp_a->answer[1]->address)) ||
 	(isset($resp_aaaa->answer[0]->address) && isset($resp_aaaa->answer[1]->address))) {
 	?>
-	<h3 class="mt-5 mb-3" id="ip"><?php echo _('IP Setup'); ?></h3>
+	<h3 class="mt-5 mb-3" id="ip"><?php echo _('IP 接入'); ?></h3>
 	<?php if (isset($resp_a->answer[0]->address) && isset($resp_a->answer[1]->address)) { ?>
 		<h4>Anycast IPv4</h4>
 		<ul>
@@ -251,24 +251,24 @@ if ($last_subdomain != '' && isset($resp->answer[0]->nsdname) && isset($resp->an
 		'ns' => $resp,
 	], 172800); // Two days
 	?>
-<h3 class="mt-5 mb-3" id="ns"><?php echo _('NS Setup'); ?></h3>
+<h3 class="mt-5 mb-3" id="ns"><?php echo _('NS 接入'); ?></h3>
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th scope="col"><?php echo _('Host Name'); ?></th>
+			<th scope="col"><?php echo _('主机名'); ?></th>
 			<th class="d-none d-md-table-cell">NS</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td><code><?php echo $zone_name; ?></code>
-				<div class="d-block d-md-none"><?php echo _('points to') . ' <code>' . $resp->answer[0]->nsdname . '</code>' ?></div>
+				<div class="d-block d-md-none"><?php echo _('指向') . ' <code>' . $resp->answer[0]->nsdname . '</code>' ?></div>
 			</td>
 			<td class="d-none d-md-table-cell"><code><?php echo $resp->answer[0]->nsdname; ?></code></td>
 		</tr>
 		<tr>
 			<td><code><?php echo $zone_name; ?></code>
-				<div class="d-block d-md-none"><?php echo _('points to') . ' <code>' . $resp->answer[1]->nsdname . '</code>' ?></div>
+				<div class="d-block d-md-none"><?php echo _('指向') . ' <code>' . $resp->answer[1]->nsdname . '</code>' ?></div>
 			</td>
 			<td class="d-none d-md-table-cell"><code><?php echo $resp->answer[1]->nsdname; ?></code></td>
 		</tr>
@@ -277,5 +277,6 @@ if ($last_subdomain != '' && isset($resp->answer[0]->nsdname) && isset($resp->an
 <?php }?>
 
 <hr>
-<h3 class="mt-5 mb-3"><a href="https://dash.cloudflare.com/" target="_blank"><?php echo _('More Settings'); ?></a></h3>
-<p><?php echo _('This site only provides configurations that the official does not have. For more settings, such as Page Rules, Crypto, Firewall, Cache, etc., please use the same account to login Cloudflare.com to setup. '); ?><a href="https://dash.cloudflare.com/" target="_blank"><?php echo _('More Settings'); ?></a></p>
+<h3 class="mt-5 mb-3"><a href="https://dash.cloudflare.com/" target="_blank"><?php echo _('更多设置'); ?></a></h3>
+<p><?php echo _('本站只提供官网之外的配置。更多设置，如 Page Rules、SSL 回源配置、防火墙、缓存"
+"配置等，请使用相同账号登录 CloudFlare.com 查看。'); ?><a href="https://dash.cloudflare.com/" target="_blank"><?php echo _('更多设置'); ?></a></p>

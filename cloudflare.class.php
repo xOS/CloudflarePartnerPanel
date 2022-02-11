@@ -66,7 +66,7 @@ class CloudFlare {
 		if ($res['response']['zone_exists'] == true) {
 			return $res;
 		} else {
-			die(_('Error, please confirm your domain.'));
+			die(_('错误，请检查你的域名。'));
 		}
 	}
 
@@ -154,9 +154,9 @@ function update_bind($zoneID, $subdomains, $zone_name) {
 	curl_close($ch);
 	unlink('/var/www/tmp/' . $zoneID . 'txt');
 	if ($dataarray->success == true) {
-		return _('Updated successful.') . '<a href="/?action=zones&domain=' . $zone_name . '">' . _('Back to domain') . '</a>';
+		return _('更新成功。') . '<a href="/?action=zones&domain=' . $zone_name . '">' . _('返回到域名') . '</a>';
 	} else {
-		return $data . '<br><a href="/?action=zones&domain=' . $zone_name . '">' . _('Back to domain') . '</a>';
+		return $data . '<br><a href="/?action=zones&domain=' . $zone_name . '">' . _('返回到域名') . '</a>';
 	}
 }
 
