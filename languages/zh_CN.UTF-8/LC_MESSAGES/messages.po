@@ -425,7 +425,7 @@ msgstr "删除"
 
 #: actions/zone.php:161 actions/zone.php:208
 msgid "There is no record in this zone yet. Please add some!"
-msgstr "该域名还没有任何记录, 请添加!"
+msgstr "该域名还没有任何记录, 请添加！"
 
 #: actions/zone.php:178
 msgid "You can use CNAME, IP or NS to set it up."
@@ -438,15 +438,15 @@ msgid ""
 "the same account to login Cloudflare.com to setup. "
 msgstr ""
 "本站只提供官网之外的配置。更多设置，如 Page Rules、SSL 回源配置、防火墙、缓存"
-"配置等，请使用相同账号登录 Cloudflare.com 查看. "
+"配置等，请使用相同账号登录 Cloudflare.com 查看。"
 
 #: cloudflare.class.php:69
 msgid "Error, please confirm your domain."
-msgstr "错误，请检查你的域名."
+msgstr "错误，请检查你的域名。"
 
 #: cloudflare.class.php:157
 msgid "Updated successful."
-msgstr "更新成功."
+msgstr "更新成功。"
 
 #: cloudflare.class.php:157 cloudflare.class.php:159
 msgid "Back to domain"
